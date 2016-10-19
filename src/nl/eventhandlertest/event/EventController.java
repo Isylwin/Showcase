@@ -17,7 +17,7 @@ public class EventController {
     private List<Event> eventLog;
     private Game game;
 
-    EventController(Game game) {
+    public EventController(Game game) {
         this.game = game;
         this.eventLog = new ArrayList<>();
         this.dispatcher = new EventDispatcher();

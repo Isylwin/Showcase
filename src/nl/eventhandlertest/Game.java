@@ -28,6 +28,6 @@ public class Game {
     }
 
     public void update() {
-        player.update(eventController);
+        eventController.fireEvent(player.update());
     }
 }

@@ -1,12 +1,13 @@
 package nl.eventhandlertest.model;
 
-import nl.eventhandlertest.event.EventController;
 import nl.eventhandlertest.event.events.PlayerMoveEvent;
+import nl.eventhandlertest.event.framework.Event;
 
 import java.awt.*;
 
+
 /**
- * Created by Oscar on 19-10-2016.
+ * @author Oscar de Leeuw
  */
 public class Player {
     private Point location;
@@ -17,12 +18,16 @@ public class Player {
         this.translation = translation;
     }
 
-    public void update(EventController controller) {
+    /**
+     * The update method is called every time the game updates.
+     * This method should return an event that the player object would like to execute.
+     *
+     * @return The event the player would like to execute.
+     */
+    public Event update() {
         Point next = new Point(location);
         next.translate(translation.x, translation.y);
-        PlayerMoveEvent event = new PlayerMoveEvent(this, location, next);
-
-        controller.fireEvent(event);
+        return new PlayerMoveEvent(this, location, next);
     }
 
     public Point getLocation() {
