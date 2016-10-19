@@ -1,6 +1,11 @@
 package nl.enumtest;
 
 
+import nl.enumtest.enumholders.GenericEnumHolder;
+import nl.enumtest.enumholders.NonGenericEnumHolder;
+import nl.enumtest.enums.BasicTestType;
+import nl.enumtest.enums.OtherTestType;
+
 public class Main {
 
     public static void main(String[] args) {

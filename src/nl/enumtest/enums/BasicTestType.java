@@ -1,4 +1,4 @@
-package nl.enumtest;
+package nl.enumtest.enums;
 
 /**
  * Created by Oscar on 19-10-2016.
