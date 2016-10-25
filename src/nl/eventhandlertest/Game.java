@@ -12,7 +12,7 @@ public class Game {
 
     public Game(Player player) {
         this.player = player;
-        this.eventController = new EventController(this);
+        this.eventController = new EventController();
     }
 
     public EventController getEventController() {
@@ -28,6 +28,6 @@ public class Game {
     }
 
     public void update() {
-        eventController.fireEvent(player.update());
+        eventController.fireEvent(player.update(), this);
     }
 }

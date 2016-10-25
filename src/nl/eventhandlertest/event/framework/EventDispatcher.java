@@ -1,10 +1,31 @@
+/**
+ * The MIT License
+ * Copyright (c) 2014 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ **/
+
 package nl.eventhandlertest.event.framework;
+
+import nl.eventhandlertest.Game;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Oscar on 19-10-2016.
+ * Handles the routing of {@link Event} messages to associated handlers.
+ * A {@link HashMap} is used to store the association between events and their respective handlers.
+ *
+ * @author Ilkka Seppälä
+ * @author Oscar de Leeuw
  */
 public class EventDispatcher {
 
@@ -31,10 +52,10 @@ public class EventDispatcher {
      * @param event The {@link Event} to be dispatched
      */
     @SuppressWarnings("unchecked")
-    public <E extends Event> void dispatch(E event) {
+    public <E extends Event> void dispatch(E event, Game game) {
         Handler<E> handler = (Handler<E>) handlers.get(event.getClass());
         if (handler != null) {
-            handler.onEvent(event);
+            handler.onEvent(event, game);
         }
     }
 
